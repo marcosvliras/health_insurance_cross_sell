@@ -2,7 +2,7 @@
 
 ## A Empresa Insurance All
 
-Disclaimer: O Contexto a seguir, é completamente fictício. E o problema foi retirado do blog: https://sejaumdatascientist.com/como-usar-data-science-para-fazer-a-empresa-vender-mais/ 
+O Contexto a seguir, é completamente fictício. E o problema foi retirado do blog: https://sejaumdatascientist.com/como-usar-data-science-para-fazer-a-empresa-vender-mais/ 
 
 A Insurance All é uma empresa que fornece seguro de saúde para seus clientes e o time de produtos está analisando a possibilidade de oferecer aos assegurados, um novo produto: Um seguro de automóveis.
 
@@ -16,7 +16,7 @@ Contudo, o time de vendas tem uma capacidade de realizar 20 mil ligações dentr
 
 ## O Desafio
 
-construir um modelo que prediz se o cliente estaria ou não interessado no seguro de automóvel. 
+construir um modelo que prediz a probabilidade de um cliente ser classificado como uma pessoa que irá querer adquirir o novo seguro. 
 
 Com a sua solução, o time de vendas espera conseguir priorizar as pessoas com maior interesse no novo produto e assim, otimizar a campanha realizando apenas contatos aos clientes mais propensos a realizar a compra.
 
@@ -29,7 +29,12 @@ Com a sua solução, o time de vendas espera conseguir priorizar as pessoas com 
     3. E se a capacidade do time de vendas aumentar para 40.000 ligações, qual a porcentagem de clientes interessados em adquirir um seguro de automóvel o time de vendas conseguirá contatar?
     
     4. Quantas ligações o time de vendas precisa fazer para contatar 80% dos clientes interessados em adquirir um seguro de automóvel?
+    
+## Proposta de solução
 
+- Estudar os dados, tentar encontrar insights importantes tanto para empresa quanto para o modelo
+- Treinar um algoritmo de machine learning para fazer o rankeamento baseado na base de treino
+- Baseado no algoritmo escolhido, irei ordenar a base de teste de forma que os clientes com mais propensão de adquirir o novo seguro sejam captados de uma maneira mais acertiva.
 
 ## Os Dados
 
