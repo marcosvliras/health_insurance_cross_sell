@@ -1,5 +1,6 @@
-Flask==2.0.2
+fastapi==0.82.0
 inflection==0.5.1
+pandas==1.4.1
+uvicorn==0.18.3
 numpy==1.19.5
-pandas==1.4.0
 requests==2.27.1
