@@ -13,7 +13,7 @@ logging.basicConfig(
     handlers=[FileHandler('../logs/logs.txt', 'w'), StreamHandler()]
 )
 
-model = pickle.load(open('/home/marcos/Documentos/Projetos/HI_Cross_sell/heroku_files/models/model.pkl', 'rb'))
+model = pickle.load(open('models/model.pkl', 'rb'))
 
 # initialize API
 app = FastAPI(title='Prediction API', version="2.0.0")
