@@ -1,0 +1,7 @@
+INFO:2023-01-17 21:31:42,121:Started server process [151896]
+INFO:2023-01-17 21:31:42,122:Waiting for application startup.
+INFO:2023-01-17 21:31:42,122:Application startup complete.
+INFO:2023-01-17 21:32:05,160:Shutting down
+INFO:2023-01-17 21:32:05,262:Waiting for application shutdown.
+INFO:2023-01-17 21:32:05,262:Application shutdown complete.
+INFO:2023-01-17 21:32:05,263:Finished server process [151896]

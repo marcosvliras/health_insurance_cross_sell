@@ -4,12 +4,13 @@ import sys
 import os
 
 try:
- from heroku_files.healthinsurance import HealthInsurance   
+    from app.healthinsurance import HealthInsurance
 except ModuleNotFoundError:
     pdir = os.path.dirname(os.getcwd())
     sys.path.insert(0, pdir)
 
-from heroku_files.healthinsurance import HealthInsurance
+from app.healthinsurance import HealthInsurance
+
 
 @pytest.fixture
 def data():
@@ -27,6 +28,7 @@ def data():
 
     return data
 
+
 @pytest.fixture
 def data2():
 
@@ -43,26 +45,28 @@ def data2():
 
     return data
 
+
 def test_columns(data):
     new_data = HealthInsurance()
     new_data = new_data.data_selection(df1=data)
     assert new_data.columns.tolist() == ['id',
-                                        'gender',
-                                        'age',
-                                        'driving_license',
-                                        'region_code',
-                                        'previously_insured',
-                                        'vehicle_age',
-                                        'vehicle_damage',
-                                        'annual_premium',
-                                        'policy_sales_channel',
-                                        'vintage'
-                                        ]
+                                         'gender',
+                                         'age',
+                                         'driving_license',
+                                         'region_code',
+                                         'previously_insured',
+                                         'vehicle_age',
+                                         'vehicle_damage',
+                                         'annual_premium',
+                                         'policy_sales_channel',
+                                         'vintage']
+
 
 def test_feature_engineering(data2):
     new_data = HealthInsurance()
     new_data = new_data.feature_engineering(data2)
     assert isinstance(new_data, pd.DataFrame)
+
 
 def test_data_preparation(data2):
     new_data = HealthInsurance()
