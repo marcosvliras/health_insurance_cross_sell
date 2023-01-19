@@ -1,12 +1,12 @@
+"""Utils."""
 import pandas as pd
 import numpy as np
 from scipy import stats
+from sklearn.model_selection import KFold
 
 
 def numeric_statistics(df):
-    """Make a descriptive analysis on numeric data.
-    """
-
+    """Make a descriptive analysis on numeric data."""
     dic = {
         "type": df.dtypes.values,
         "Unique_Values": df.nunique().values,
@@ -24,7 +24,7 @@ def numeric_statistics(df):
 
 
 def cramer_v(x, y):
-
+    """Return the cramer v beetwen two categorical variables."""
     cm = pd.crosstab(x, y).values
     n = cm.sum()
     r, k = cm.shape
@@ -39,7 +39,7 @@ def cramer_v(x, y):
 
 
 def precision_at_k(data, k):
-
+    """Return precision at k."""
     # sorte client by propensity score
     data = data.sort_values('score', ascending=False)
     data = data.reset_index(drop=True)
@@ -60,6 +60,7 @@ def precision_at_k(data, k):
 
 
 def recall_at_k(data, k):
+    """Return recall at k."""
     # sorte client by propensity score
     data = data.sort_values('score', ascending=False)
     data = data.reset_index(drop=True)
@@ -80,7 +81,7 @@ def recall_at_k(data, k):
 
 
 def cross_validation(X_train, y_train, model, kfolds, cols_selected, ktop):
-
+    """Cros validation function."""
     score = []
     kf = KFold(n_splits=kfolds, shuffle=True)
 

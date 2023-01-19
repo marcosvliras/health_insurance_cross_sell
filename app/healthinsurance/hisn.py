@@ -41,6 +41,7 @@ class HealthInsurance(object):
 
         df1.columns = new_columns
 
+        df1 = df1.dropna()
         return df1
 
     def feature_engineering(self, df2):
@@ -76,6 +77,9 @@ class HealthInsurance(object):
         df5 = pd.get_dummies(
             df5, prefix='vehicle_age', columns=['vehicle_age'])
 
+        # TO DO
+        # investigar, aqui esta gerando valores nulos, talvez o map dessa var
+        # nao esteja mapeando todas
         df5['policy_sales_channel'] = df5['policy_sales_channel'].map(
             self.policy_channel)
 
@@ -84,7 +88,7 @@ class HealthInsurance(object):
             'vehicle_damage', 'previously_insured', 'policy_sales_channel']
 
         df5 = df5[cols_selected]
-
+        df5 = df5.dropna()
         return df5
 
     def get_predictions(self, model, original_data, test_data):
