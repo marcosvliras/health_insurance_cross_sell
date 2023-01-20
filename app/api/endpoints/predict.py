@@ -9,13 +9,6 @@ from app.healthinsurance import HealthInsurance
 from ..models.dataframe import DataFrame
 
 
-logging.basicConfig(
-    level=INFO,
-    format='%(levelname)s:%(asctime)s:%(message)s',
-    handlers=[FileHandler('app/logs/logs.txt', 'w'), StreamHandler()]
-)
-
-
 router = APIRouter(prefix='/predict')
 
 

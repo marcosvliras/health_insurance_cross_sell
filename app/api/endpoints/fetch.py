@@ -3,6 +3,7 @@ from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 import pandas as pd
 from .predict import make_prediction
+import logging
 
 
 router = APIRouter(prefix='/fetch')
@@ -17,10 +18,12 @@ def fetch():
     path = os.getcwd() + '/data/test.csv'
     df = pd.read_csv(path)
 
+    logging.info("Fetch: Starting...")
     json_response = make_prediction(df)
     df_response = pd.read_json(json_response)
     df_response = df_response.head(10)
     df_response_final = df_response.to_json(
         orient='records', date_format='iso')
+    logging.info("Fetch: end.")
 
     return df_response_final
