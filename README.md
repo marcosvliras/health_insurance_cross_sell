@@ -2,7 +2,7 @@
 
 ## A Empresa Insurance All
 
-O Contexto a seguir, é completamente fictício. E o problema foi retirado do blog: https://sejaumdatascientist.com/como-usar-data-science-para-fazer-a-empresa-vender-mais/ 
+O Contexto a seguir, é completamente fictício. E o problema foi retirado do blog: https://sejaumdatascientist.com/como-usar-data-science-para-fazer-a-empresa-vender-mais/
 
 A Insurance All é uma empresa que fornece seguro de saúde para seus clientes e o time de produtos está analisando a possibilidade de oferecer aos assegurados, um novo produto: Um seguro de automóveis.
 
@@ -16,7 +16,7 @@ Contudo, o time de vendas tem uma capacidade de realizar 20 mil ligações dentr
 
 ## O Desafio
 
-construir um modelo que prediz a probabilidade de um cliente ser classificado como uma pessoa que irá querer adquirir o novo seguro. 
+construir um modelo que prediz a probabilidade de um cliente ser classificado como uma pessoa que irá querer adquirir o novo seguro.
 
 Com a sua solução, o time de vendas espera conseguir priorizar as pessoas com maior interesse no novo produto e assim, otimizar a campanha realizando apenas contatos aos clientes mais propensos a realizar a compra.
 
@@ -25,11 +25,11 @@ Com a sua solução, o time de vendas espera conseguir priorizar as pessoas com 
     1. Principais Insights sobre os atributos mais relevantes de clientes interessados em adquirir um seguro de automóvel.
 
     2. Qual a porcentagem de clientes interessados em adquirir um seguro de automóvel, o time de vendas conseguirá contatar fazendo 20.000 ligações?
-    
+
     3. E se a capacidade do time de vendas aumentar para 40.000 ligações, qual a porcentagem de clientes interessados em adquirir um seguro de automóvel o time de vendas conseguirá contatar?
-    
+
     4. Quantas ligações o time de vendas precisa fazer para contatar 80% dos clientes interessados em adquirir um seguro de automóvel?
-    
+
 ## Proposta de solução
 
 - Estudar os dados, tentar encontrar insights importantes tanto para empresa quanto para o modelo
@@ -38,9 +38,9 @@ Com a sua solução, o time de vendas espera conseguir priorizar as pessoas com 
 
 ## Os Dados
 
-O conjunto de dados está disponível na plataforma do Kaggle, através desse link: https://www.kaggle.com/anmolkumar/health-insurance-cross-sell-prediction 
+O conjunto de dados está disponível na plataforma do Kaggle, através desse link: https://www.kaggle.com/anmolkumar/health-insurance-cross-sell-prediction
 
-Cada linha representa um cliente e cada coluna contém alguns atributos que descrevem esse cliente, além da sua resposta à pesquisa, na qual ela mencionou interesse ou não ao novo produto de seguros. 
+Cada linha representa um cliente e cada coluna contém alguns atributos que descrevem esse cliente, além da sua resposta à pesquisa, na qual ela mencionou interesse ou não ao novo produto de seguros.
 
 O conjunto de dados inclui as seguintes informações:
 
@@ -56,3 +56,8 @@ O conjunto de dados inclui as seguintes informações:
 - Policy sales channel: código anônimo para o canal de contato com o cliente.
 - Vintage: número de dias que o cliente se associou à empresa através da compra do seguro de saúde.
 - Response: 0, o cliente não tem interesse e 1, o cliente tem interesse.
+
+# Compute test coverage
+```sh
+python3 -m pytest --cov= . --cov-report html
+```

@@ -1,34 +1,32 @@
+"""HealhInsurance class."""
 import pickle
 import pandas as pd
 import inflection
 
 
 class HealthInsurance(object):
+    """HealthInsurance class."""
 
     def __init__(self):
+        """Construct."""
         self.home_path = '/home/marcos/Documentos/Projetos/HI_Cross_sell/app/'
 
-        folder = 'parameters'
-        self.age = pickle.load(open(
-            self.home_path + folder + '/age_scaler.pkl', 'rb'))
+        def read_pickle(file):
+            home_path = '/home/marcos/Documentos/Projetos/HI_Cross_sell/app/'
+            folder = 'parameters'
+            path = home_path + folder
 
-        self.annual_premium = pickle.load(open(
-            self.home_path + folder + '/annual_premium_scaler.pkl', 'rb'))
+            return pickle.load(open(path + file, 'rb'))
 
-        self.gender = pickle.load(open(
-            self.home_path + folder + '/gender_encoder.pkl', 'rb'))
-        self.policy_channel = pickle.load(
-            open(
-                self.home_path + folder +
-                '/policy_sales_channel_encoder.pkl', 'rb'))
-        self.region = pickle.load(open(
-            self.home_path + folder + '/region_encoder.pkl', 'rb'))
-        self.vintage = pickle.load(open(
-            self.home_path + folder + '/vintage.pkl', 'rb'))
+        self.age = read_pickle('/age_scaler.pkl')
+        self.annual_premium = read_pickle('/annual_premium_scaler.pkl')
+        self.gender = read_pickle('/gender_encoder.pkl')
+        self.policy_channel = read_pickle('/policy_sales_channel_encoder.pkl')
+        self.region = read_pickle('/region_encoder.pkl')
+        self.vintage = read_pickle('/vintage.pkl')
 
     def data_selection(self, df1):
-        """Rename columns.
-        """
+        """Rename columns."""
         old_columns = [
             'id', 'Gender', 'Age', 'Driving_License',
             'Region_Code', 'Previously_Insured', 'Vehicle_Age',
@@ -45,7 +43,9 @@ class HealthInsurance(object):
         return df1
 
     def feature_engineering(self, df2):
-        """Change the values in the columns 'vehicle_age' and 'vehicle_damage'
+        """Feature engineering.
+
+        Change the values in the columns vehicle_age and vehicle_damage.
         """
         df2['vehicle_age'] = df2['vehicle_age'].apply(
             lambda x: 'over_2_years' if x == '> 2 Years'
@@ -62,7 +62,6 @@ class HealthInsurance(object):
 
         This method apply on data the transformations needed to be done.
         """
-
         df5['annual_premium'] = self.annual_premium.transform(
             df5[['annual_premium']].values)
 
@@ -92,9 +91,7 @@ class HealthInsurance(object):
         return df5
 
     def get_predictions(self, model, original_data, test_data):
-        """Score the data.
-        """
-
+        """Score the data."""
         pred = pd.DataFrame(model.predict_proba(test_data))[1]
 
         original_data['score'] = pred

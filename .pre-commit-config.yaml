@@ -1,0 +1,23 @@
+#  for no local repo
+# -   repo: https://github.com/pycqa/pydocstyle
+#     rev: 4.0.0  # pick a git hash / tag to point to
+#     hooks:
+#     -   id: pydocstyle
+
+repos:
+-   repo: local
+    hooks:
+      - id: pydocstyle
+        name: pydocstyle
+        entry: pydocstyle
+        language: system
+        stages: [commit]
+-   repo: local
+    hooks:
+      - id: pycodestyle
+        name: pycodestyle
+        entry: pycodestyle
+        language: system
+        stages: [commit]
+        types: [python]
+        #exclude: '(.ipynb|.pkl|.md|.yaml|.yml|.sh|.bash|.txt)'
