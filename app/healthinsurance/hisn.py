@@ -1,4 +1,4 @@
-"""HealhInsurance class."""
+"""HealhInsurance."""
 import pickle
 import pandas as pd
 import inflection
