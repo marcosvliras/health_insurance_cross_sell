@@ -32,9 +32,10 @@ Com a sua solução, o time de vendas espera conseguir priorizar as pessoas com 
 
 ## Proposta de solução
 
-- Estudar os dados, tentar encontrar insights importantes tanto para empresa quanto para o modelo
+- Estudar os dados, encontrar insights importantes tanto para empresa.
 - Treinar um algoritmo de machine learning para fazer o rankeamento baseado na base de treino
 - Baseado no algoritmo escolhido, irei ordenar a base de teste de forma que os clientes com mais propensão de adquirir o novo seguro sejam captados de uma maneira mais acertiva.
+ - Criar uma API para utilização desse modelo seguido do deploy.
 
 ## Os Dados
 
@@ -59,5 +60,9 @@ O conjunto de dados inclui as seguintes informações:
 
 # Compute test coverage
 ```sh
-python3 -m pytest --cov= . --cov-report html
+python3 -m pytest --cov=tests --cov-report html:cov_html
 ```
+
+API coverage
+
+![check-code-coverage](https://img.shields.io/badge/code--coverage-97%25-brightgreen)
