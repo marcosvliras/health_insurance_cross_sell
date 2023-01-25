@@ -58,6 +58,18 @@ O conjunto de dados inclui as seguintes informações:
 - Vintage: número de dias que o cliente se associou à empresa através da compra do seguro de saúde.
 - Response: 0, o cliente não tem interesse e 1, o cliente tem interesse.
 
+
+# Docker
+Na raiz do projeto.
+```sh
+# create image
+docker build -t docker_fastapi:v1 -f ./docker/Dockerfile .
+
+# run
+docker run --name container_fastapi_v1 -p 8080:80  docker_fastapi:v1
+```
+Para acessar o Swagger da API http://0.0.0.0:8080/docs
+
 # Compute test coverage
 ```sh
 python3 -m pytest --cov=tests --cov-report html:cov_html
