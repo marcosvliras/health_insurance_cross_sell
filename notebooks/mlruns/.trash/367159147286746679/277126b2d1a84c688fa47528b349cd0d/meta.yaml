@@ -1,0 +1,15 @@
+artifact_uri: file:///home/marcos/Documentos/Projetos/HI_Cross_sell/notebooks/mlruns/367159147286746679/277126b2d1a84c688fa47528b349cd0d/artifacts
+end_time: 1674692825305
+entry_point_name: ''
+experiment_id: '367159147286746679'
+lifecycle_stage: active
+run_id: 277126b2d1a84c688fa47528b349cd0d
+run_name: teste_002
+run_uuid: 277126b2d1a84c688fa47528b349cd0d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1674692820698
+status: 3
+tags: []
+user_id: marcos
