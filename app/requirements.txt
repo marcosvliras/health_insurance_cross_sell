@@ -18,3 +18,5 @@ inflection==0.5.1
 seaborn==0.12.2
 #scikit-learn-intelex==2023.0.2
 scikit-plot==0.3.7
+ipykernel==6.20.2
+mlflow==2.1.1
