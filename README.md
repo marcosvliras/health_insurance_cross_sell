@@ -58,6 +58,17 @@ O conjunto de dados inclui as seguintes informações:
 - Vintage: número de dias que o cliente se associou à empresa através da compra do seguro de saúde.
 - Response: 0, o cliente não tem interesse e 1, o cliente tem interesse.
 
+# Solução
+O objetivo foi aplicar o modelo para conseguir rankear os novos clientes com maior propensão de compra (de adquirir) do novo seguro.
+
+Uma lista ordenada de clientes com maior propensão de compra sintetiza os clientes que de fato podem querer adquirir o novo produto
+serviço. Gerando assim uma redução de custo de aquisição desses clientes e percorrendo uma porcentagem menor da base dados para atingir a quantidade de clientes interessados.
+
+Para 40.000 ligações, qual a porcentagem de clientes interessados em adquirir um seguro de automóvel o time de vendas conseguirá contatar?
+
+Para 40.000 ligações (40.000 representa em torno de 66% da base de dados) consigo alcançar 100% das pessoas interessadas. Mas o que é interessante é que consigo chegar nessa mesma porcentagem de pessoas interessadas com um pouco mais de 50% da base de dados. Percorrer uma menor porcentagem da base de dados significa utilizar menos recursos para alcançar a mesma quantidade de pessoas.
+
+Mais informações: https://www.linkedin.com/feed/update/urn:li:activity:6894438204783558656/
 
 # Docker
 Na raiz do projeto.
@@ -74,7 +85,4 @@ Para acessar o Swagger da API http://0.0.0.0:8080/docs
 ```sh
 python3 -m pytest --cov=tests --cov-report html:cov_html
 ```
-
-API coverage
-
-![check-code-coverage](https://img.shields.io/badge/code--coverage-97%25-brightgreen)
+![check-code-coverage](https://img.shields.io/badge/code--coverage-25-brightgreen)
