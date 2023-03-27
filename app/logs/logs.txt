@@ -1,7 +1,0 @@
-INFO:2023-01-31 20:52:36,679:Started server process [297931]
-INFO:2023-01-31 20:52:36,679:Waiting for application startup.
-INFO:2023-01-31 20:52:36,679:Application startup complete.
-INFO:2023-01-31 20:53:56,500:Shutting down
-INFO:2023-01-31 20:53:56,606:Waiting for application shutdown.
-INFO:2023-01-31 20:53:56,607:Application shutdown complete.
-INFO:2023-01-31 20:53:56,608:Finished server process [297931]

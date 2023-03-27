@@ -68,6 +68,13 @@ Para 40.000 ligações, qual a porcentagem de clientes interessados em adquirir 
 
 Para 40.000 ligações (40.000 representa em torno de 66% da base de dados) consigo alcançar 100% das pessoas interessadas. Mas o que é interessante é que consigo chegar nessa mesma porcentagem de pessoas interessadas com um pouco mais de 50% da base de dados. Percorrer uma menor porcentagem da base de dados significa utilizar menos recursos para alcançar a mesma quantidade de pessoas.
 
+Ou seja, como resultados teríamos:
+
+- Uma redução de aproxidamente 16% do número de ligações necessárias para encontrar todas as pessoas interessadas no novo seguro.
+- Aumento da receita ao utilizar o modelo que comparado com o baseline nos dá o dobro de pessoas interessadas em adquirir o novo seguro.
+
+![image](notebooks/teste.png)
+
 Mais informações: https://www.linkedin.com/feed/update/urn:li:activity:6894438204783558656/
 
 # Docker
@@ -85,4 +92,4 @@ Para acessar o Swagger da API http://0.0.0.0:8080/docs
 ```sh
 python3 -m pytest --cov=tests --cov-report html:cov_html
 ```
-![check-code-coverage](https://img.shields.io/badge/code--coverage-25-brightgreen)
+![check-code-coverage](https://img.shields.io/badge/code--coverage-97%25-brightgreen)
