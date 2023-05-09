@@ -1,3 +1,4 @@
+"""Predict."""
 import pandas as pd
 import pickle
 from fastapi import APIRouter
@@ -5,6 +6,7 @@ from fastapi.responses import JSONResponse
 import logging
 from app.healthinsurance import HealthInsurance
 from ..models.dataframe import DataFrame
+import os
 
 
 router = APIRouter(prefix='/predict')
@@ -19,7 +21,6 @@ def health_insurance_predict(
     data: DataFrame
 ):
     """Turn back the prediction."""
-
     logging.info("Prediction: Starting...")
     df = pd.DataFrame(data.dict())
     df_response = make_prediction(df)
@@ -30,8 +31,11 @@ def health_insurance_predict(
 
 def make_prediction(data):
     """Make the prediction pipeline."""
-    path = ("/home/marcos/Documentos/Projetos/HI_Cross_sell"
-            "/app/models/model.pkl")
+    # path = ("/home/marcos/Documentos/Projetos/HI_Cross_sell"
+    #         "/app/models/model.pkl")
+
+    path = ("app/models/model.pkl")
+
     with open(path, 'rb') as file:
         model = pickle.load(file)
 
@@ -50,7 +54,7 @@ def make_prediction(data):
     # data preparation
     df3 = pipeline.data_preparation(df2)
     logging.info("Data Preparation...")
-    
+
     # prediction
     df_response = pipeline.get_predictions(model, data, df3)
     logging.info("Get Predictions...")

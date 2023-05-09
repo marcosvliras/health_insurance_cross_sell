@@ -12,5 +12,6 @@ RUN pip install -r requirements.txt
 
 # copy project
 COPY app/ /src/app
+COPY data/ /src/data
 
 CMD ["uvicorn", "app.run:app", "--host", "0.0.0.0", "--port", "80"]

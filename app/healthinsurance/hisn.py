@@ -9,10 +9,12 @@ class HealthInsurance(object):
 
     def __init__(self):
         """Construct."""
-        self.home_path = '/home/marcos/Documentos/Projetos/HI_Cross_sell/app/'
+        # self.home_path =
+        # '/home/marcos/Documentos/Projetos/HI_Cross_sell/app/'
 
         def read_pickle(file):
-            home_path = '/home/marcos/Documentos/Projetos/HI_Cross_sell/app/'
+            # home_path = '/home/marcos/Documentos/Projetos/HI_Cross_sell/app/'
+            home_path = 'app/'
             folder = 'parameters'
             path = home_path + folder
 
