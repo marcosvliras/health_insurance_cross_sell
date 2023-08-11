@@ -7,11 +7,12 @@ RUN apt update
 WORKDIR /src
 
 # install libs
-COPY app/requirements.txt ./requirements.txt
+COPY requirements.txt ./requirements.txt
 RUN pip install -r requirements.txt
 
 # copy project
-COPY app/ /src/app
-COPY data/ /src/data
+COPY app/ /src
+COPY run.py /src
 
-CMD ["uvicorn", "app.run:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["python3", "run.py"]
+#CMD ["uvicorn", "app.run:app", "--host", "0.0.0.0", "--port", "80"]

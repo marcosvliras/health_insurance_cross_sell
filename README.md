@@ -22,20 +22,20 @@ Com a sua solução, o time de vendas espera conseguir priorizar as pessoas com 
 
 - Entregar um relatório contendo algumas análises e respostas às seguintes perguntas:
 
-    1. Principais Insights sobre os atributos mais relevantes de clientes interessados em adquirir um seguro de automóvel.
+  1. Principais Insights sobre os atributos mais relevantes de clientes interessados em adquirir um seguro de automóvel.
 
-    2. Qual a porcentagem de clientes interessados em adquirir um seguro de automóvel, o time de vendas conseguirá contatar fazendo 20.000 ligações?
+  2. Qual a porcentagem de clientes interessados em adquirir um seguro de automóvel, o time de vendas conseguirá contatar fazendo 20.000 ligações?
 
-    3. E se a capacidade do time de vendas aumentar para 40.000 ligações, qual a porcentagem de clientes interessados em adquirir um seguro de automóvel o time de vendas conseguirá contatar?
+  3. E se a capacidade do time de vendas aumentar para 40.000 ligações, qual a porcentagem de clientes interessados em adquirir um seguro de automóvel o time de vendas conseguirá contatar?
 
-    4. Quantas ligações o time de vendas precisa fazer para contatar 80% dos clientes interessados em adquirir um seguro de automóvel?
+  4. Quantas ligações o time de vendas precisa fazer para contatar 80% dos clientes interessados em adquirir um seguro de automóvel?
 
 ## Proposta de solução
 
 - Estudar os dados, encontrar insights importantes tanto para empresa.
 - Treinar um algoritmo de machine learning para fazer o rankeamento baseado na base de treino
 - Baseado no algoritmo escolhido, irei ordenar a base de teste de forma que os clientes com mais propensão de adquirir o novo seguro sejam captados de uma maneira mais acertiva.
- - Criar uma API para utilização desse modelo seguido do deploy.
+- Criar uma API para utilização desse modelo seguido do deploy.
 
 ## Os Dados
 
@@ -59,6 +59,7 @@ O conjunto de dados inclui as seguintes informações:
 - Response: 0, o cliente não tem interesse e 1, o cliente tem interesse.
 
 # Solução
+
 O objetivo foi aplicar o modelo para conseguir rankear os novos clientes com maior propensão de compra (de adquirir) do novo seguro.
 
 Uma lista ordenada de clientes com maior propensão de compra sintetiza os clientes que de fato podem querer adquirir o novo produto
@@ -78,18 +79,56 @@ Ou seja, como resultados teríamos:
 Mais informações: https://www.linkedin.com/feed/update/urn:li:activity:6894438204783558656/
 
 # Docker
+
 Na raiz do projeto.
+
 ```sh
 # create image
-docker build -t docker_fastapi:v1 -f ./docker/Dockerfile .
+docker build -t docker_fastapi:v1 .
 
 # run
 docker run --name container_fastapi_v1 -p 8080:80  docker_fastapi:v1
 ```
+
 Para acessar o Swagger da API http://0.0.0.0:8080/docs
 
+# Exemplos para testar a API
+
+```json
+[
+  {
+    "id": 1,
+    "gender": "Male",
+    "age": 44,
+    "driving_license": 1,
+    "region_code": 28.0,
+    "previously_insured": 0,
+    "vehicle_age": "> 2 anos",
+    "vehicle_damage": "Yes",
+    "annual_premium": 40454.0,
+    "policy_sales_channel": 26.0,
+    "vintage": 217
+  },
+  {
+    "id": 1,
+    "gender": "Male",
+    "age": 44,
+    "driving_license": 0,
+    "region_code": 28.0,
+    "previously_insured": 0,
+    "vehicle_age": "> 2 anos",
+    "vehicle_damage": "Yes",
+    "annual_premium": 40454.0,
+    "policy_sales_channel": 26.0,
+    "vintage": 256
+  }
+]
+```
+
 # Compute test coverage
+
 ```sh
 python3 -m pytest --cov=tests --cov-report html:cov_html
 ```
+
 ![check-code-coverage](https://img.shields.io/badge/code--coverage-97%25-brightgreen)

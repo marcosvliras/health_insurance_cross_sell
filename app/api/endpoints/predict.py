@@ -1,32 +1,56 @@
 """Predict."""
+import json
+from typing import Dict, List
 import pandas as pd
 import pickle
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 import logging
 from app.healthinsurance import HealthInsurance
-from ..models.dataframe import DataFrame
-import os
+from ..models.dataframe import (
+    UniquePredictioRequest,
+    UniquePredictionResponse,
+)
 
 
-router = APIRouter(prefix='/predict')
+router = APIRouter(prefix="/predict", tags=["PREDICTIONS"])
 
 
 @router.post(
-    "",
+    "/many",
     response_class=JSONResponse,
-    summary="Return the pediction."
+    summary="Prediction for many customers",
 )
-def health_insurance_predict(
-    data: DataFrame
-):
+def health_insurance_predict_many(
+    data: List[UniquePredictioRequest],
+) -> List[UniquePredictionResponse]:
     """Turn back the prediction."""
-    logging.info("Prediction: Starting...")
-    df = pd.DataFrame(data.dict())
+    list_of_unique_input = [data_input.dict() for data_input in data]
+    df = pd.DataFrame(list_of_unique_input)
     df_response = make_prediction(df)
-    logging.info("Prediction: End")
 
-    return df_response
+    data_list = json.loads(df_response)
+    prediction_objects = [
+        UniquePredictionResponse(**item) for item in data_list
+    ]
+
+    return prediction_objects
+
+
+@router.post(
+    "/one",
+    response_class=JSONResponse,
+    summary="Prediction for one customer",
+)
+def health_insurance_predict_one(
+    data: UniquePredictioRequest,
+) -> UniquePredictionResponse:
+    """Turn back the prediction."""
+    df = pd.DataFrame([data.dict()])
+    df_response = make_prediction(df)
+
+    data_list = json.loads(df_response)
+    return UniquePredictionResponse(**data_list[0])
 
 
 def make_prediction(data):
@@ -34,12 +58,13 @@ def make_prediction(data):
     # path = ("/home/marcos/Documentos/Projetos/HI_Cross_sell"
     #         "/app/models/model.pkl")
 
-    path = ("app/models/model.pkl")
+    logging.info("Prediction: Starting...")
 
-    with open(path, 'rb') as file:
+    path = "app/models/model.pkl"
+
+    with open(path, "rb") as file:
         model = pickle.load(file)
 
-    logging.info("Prediction: Starting...")
     # Instantiate Rossmann class
     pipeline = HealthInsurance()
 
@@ -58,6 +83,6 @@ def make_prediction(data):
     # prediction
     df_response = pipeline.get_predictions(model, data, df3)
     logging.info("Get Predictions...")
-    logging.info("Predictions: Done")
+    logging.info("Prediction: Done")
 
     return df_response

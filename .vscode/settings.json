@@ -1,7 +1,18 @@
 {
-    "files.exclude": {
-        "**/*.pyc*": {"when": "$(basename).py"},
-        "**/__pycache__": true,
-        "**/.pytest_cache": true
-    }
+  "files.exclude": {
+    "**/*.pyc*": { "when": "$(basename).py" },
+    "**/__pycache__": true,
+    "**/.pytest_cache": true
+  },
+  "python.linting.pydocstyleEnabled": true,
+  "python.linting.pydocstyleArgs": [
+    "--ignore=D104",
+    "--ignore=D101",
+    "--ignore=D203"
+  ],
+  "python.linting.pycodestyleEnabled": true,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "python.formatting.provider": "black"
 }

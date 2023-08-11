@@ -1,0 +1,15 @@
+artifact_uri: file:///home/marcos/Documentos/Projetos/HI_Cross_sell/notebooks/mlruns/895400928692643572/e8c832bd6bd1485d91878954b399d51e/artifacts
+end_time: 1691720010081
+entry_point_name: ''
+experiment_id: '895400928692643572'
+lifecycle_stage: active
+run_id: e8c832bd6bd1485d91878954b399d51e
+run_name: logistic_regression
+run_uuid: e8c832bd6bd1485d91878954b399d51e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1691720009155
+status: 4
+tags: []
+user_id: marcos
