@@ -78,19 +78,29 @@ Ou seja, como resultados teríamos:
 
 Mais informações: https://www.linkedin.com/feed/update/urn:li:activity:6894438204783558656/
 
-# Docker
+# Como replicar o projeto no seu ambiente local
 
-Na raiz do projeto.
+> **Observação:** Certifique-se de ter o docker instalado.
+
+1. Na raiz do projeto execute o build para gerar uma imagem docker a partir
+   do Dockerfile.
 
 ```sh
 # create image
 docker build -t docker_fastapi:v1 .
-
-# run
-docker run --name container_fastapi_v1 -p 8080:8000  docker_fastapi:v1
 ```
 
-Para acessar o Swagger da API http://0.0.0.0:8080/docs
+2. Execute o docker run para gerar o container a partir da imagem gerada.
+
+```sh
+# run
+docker run --name container_fastapi_v1 -p <port>:8000  docker_fastapi:v1
+```
+
+3. Feito isso, a api estará disponível na porta `<port>` mapeada que
+   foi escolhida.
+
+- Para acessar o Swagger da API: http://0.0.0.0:`<port>`/docs
 
 # Exemplos para testar a API
 
