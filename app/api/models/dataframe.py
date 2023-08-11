@@ -1,9 +1,9 @@
 """Request and Response model."""
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, validator
 from typing import List
 
 
-class UniquePredictioRequest(BaseModel):
+class UniquePredictionRequest(BaseModel):
     """Request body."""
 
     id: int = Field(title="user id")
@@ -17,6 +17,44 @@ class UniquePredictioRequest(BaseModel):
     annual_premium: float = Field(title="annual budget")
     policy_sales_channel: float = Field(title="Channel")
     vintage: int = Field(title="Vintage")
+
+    @validator("gender")
+    def validate_gender(cls, value):
+        """Validate gender."""
+        if value not in ["Male", "Female"]:
+            raise ValueError("Gender must be 'Male' or 'Female'")
+        return value
+
+    @validator("driving_license")
+    def validate_driving_license(cls, value):
+        """Validate driving license."""
+        if value not in [0, 1]:
+            raise ValueError("Driving license must be 0 or 1")
+        return value
+
+    @validator("previously_insured")
+    def validate_previously_insured(cls, value):
+        """Validate previously insured."""
+        if value not in [0, 1]:
+            raise ValueError("Previously insured must be 0 or 1")
+        return value
+
+    @validator("vehicle_age")
+    def validate_vehicle_age(cls, value):
+        """Validate vehicle age."""
+        if value not in ["> 2 Years", "1-2 Year", "< 1 Year"]:
+            raise ValueError(
+                """vehicle age must be present in ['> 2 Years', '1-2 Year',"""
+                """'< 1 Year']"""
+            )
+        return value
+
+    @validator("vehicle_damage")
+    def validate_vehicle_damage(cls, value):
+        """Validate vehicle damage."""
+        if value not in ["Yes", "No"]:
+            raise ValueError("vehicle damage must be 'Yes' or 'No'")
+        return value
 
 
 class UniquePredictionResponse(BaseModel):

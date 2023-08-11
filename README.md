@@ -78,7 +78,11 @@ Ou seja, como resultados teríamos:
 
 Mais informações: https://www.linkedin.com/feed/update/urn:li:activity:6894438204783558656/
 
-# Como replicar o projeto no seu ambiente local
+Onde ver o desenvolvimento do projeto: `notebooks/HICross_sell.ipynb`
+
+# API
+
+## LOCAL - Como replicar o projeto no seu ambiente local
 
 > **Observação:** Certifique-se de ter o docker instalado.
 
@@ -98,11 +102,13 @@ docker run --name container_fastapi_v1 -p <port>:8000  docker_fastapi:v1
 ```
 
 3. Feito isso, a api estará disponível na porta `<port>` mapeada que
-   foi escolhida.
+   foi escolhida. Para acessar o Swagger da API: `http://0.0.0.0:<port>/docs`
 
-- Para acessar o Swagger da API: http://0.0.0.0:`<port>`/docs
+## PROD - Como acessar Api deployada
 
-# Exemplos para testar a API
+Acesso ao swagger: `https://health-insurance-api-ir7c.onrender.com/docs`
+
+### Exemplos para testar a API
 
 ```json
 [
@@ -113,7 +119,7 @@ docker run --name container_fastapi_v1 -p <port>:8000  docker_fastapi:v1
     "driving_license": 1,
     "region_code": 28.0,
     "previously_insured": 0,
-    "vehicle_age": "> 2 anos",
+    "vehicle_age": "> 2 Years",
     "vehicle_damage": "Yes",
     "annual_premium": 40454.0,
     "policy_sales_channel": 26.0,
@@ -126,7 +132,7 @@ docker run --name container_fastapi_v1 -p <port>:8000  docker_fastapi:v1
     "driving_license": 0,
     "region_code": 28.0,
     "previously_insured": 0,
-    "vehicle_age": "> 2 anos",
+    "vehicle_age": "> 2 Years",
     "vehicle_damage": "Yes",
     "annual_premium": 40454.0,
     "policy_sales_channel": 26.0,

@@ -8,7 +8,7 @@ from fastapi.responses import JSONResponse
 import logging
 from app.healthinsurance import HealthInsurance
 from ..models.dataframe import (
-    UniquePredictioRequest,
+    UniquePredictionRequest,
     UniquePredictionResponse,
 )
 
@@ -22,7 +22,7 @@ router = APIRouter(prefix="/predict", tags=["PREDICTIONS"])
     summary="Prediction for many customers",
 )
 def health_insurance_predict_many(
-    data: List[UniquePredictioRequest],
+    data: List[UniquePredictionRequest],
 ) -> List[UniquePredictionResponse]:
     """Turn back the prediction."""
     list_of_unique_input = [data_input.dict() for data_input in data]
@@ -43,7 +43,7 @@ def health_insurance_predict_many(
     summary="Prediction for one customer",
 )
 def health_insurance_predict_one(
-    data: UniquePredictioRequest,
+    data: UniquePredictionRequest,
 ) -> UniquePredictionResponse:
     """Turn back the prediction."""
     df = pd.DataFrame([data.dict()])
