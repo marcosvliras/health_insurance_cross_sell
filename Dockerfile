@@ -11,8 +11,8 @@ COPY requirements.txt ./requirements.txt
 RUN pip install -r requirements.txt
 
 # copy project
-COPY app/ /src
+COPY app/ /src/app
 COPY run.py /src
 
 CMD ["python3", "run.py"]
-#CMD ["uvicorn", "app.run:app", "--host", "0.0.0.0", "--port", "80"]
+#CMD ["uvicorn", "app.run:app", "--host", "0.0.0.0", "--port", "8000"]

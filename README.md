@@ -87,7 +87,7 @@ Na raiz do projeto.
 docker build -t docker_fastapi:v1 .
 
 # run
-docker run --name container_fastapi_v1 -p 8080:80  docker_fastapi:v1
+docker run --name container_fastapi_v1 -p 8080:8000  docker_fastapi:v1
 ```
 
 Para acessar o Swagger da API http://0.0.0.0:8080/docs
@@ -131,4 +131,4 @@ Para acessar o Swagger da API http://0.0.0.0:8080/docs
 python3 -m pytest --cov=tests --cov-report html:cov_html
 ```
 
-![check-code-coverage](https://img.shields.io/badge/code--coverage-97%25-brightgreen)
+![check-code-coverage](https://img.shields.io/badge/code--coverage-25-brightgreen)
